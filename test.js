@@ -17,22 +17,31 @@ var client = webdriverio.remote(options).init()
         console.log("PPPPPPPPPPPPPPPPPPPPP")
         console.log(res);
     })
-    
-        .getURL().then(function(url){
+        .getUrl().then(function(url){
             console.log("its here");
             console.log(url);
         })
         client.getCurrentTabId().then(function(tabid) {
             console.log(tabid);
             console.log("****************")
-        })
-        client.getHTML(res, function(html) {
-            console.log("its inside page");
-            console.log(html);
+            
         })
         client.getText('h1').then(function(job_title){
             console.log("job title is " + job_title);
         })
+        client.getText(".jobSumValue").then(function(job_ref_code){
+            console.log("job ref code is" + job_ref_code)
+        })
+        client.getText(".earcu_posdescriptionnote").then(function(job_desc){
+            console.log("job description" + job_desc);
+        })
+        // client.getHTML(res, function(html) {
+        //     console.log("its inside page");
+        //     console.log(html);
+        // })
+        // client.getText('h1').then(function(job_title){
+        //     console.log("job title is " + job_title);
+        // })
     
     // .elements('a').then(function(res) {
     //     console.log("its coming here")
